@@ -21,13 +21,18 @@ public class Board {
      * 
      * Like this:
      * 
-     * 1   2   3
-     * 4   5   6
-     * 7   8   9
+     * 0   1   2
+     * 3   4   5
+     * 6   7   8
      * 
      */
-    private final Map<Integer, Tokens> board;
-
+    private final HashMap<Integer, Tokens> board;
+    
+    /**
+     * 
+     */
+    private int lastField;
+    
     //Constructors
     //==========================================================================
     
@@ -37,7 +42,7 @@ public class Board {
      * Initializes a new board to play on.
      */
     public Board() {
-        this.board = new HashMap<>();
+        this.board = new HashMap<>() ;
     }
 
     //Methods (Public)
@@ -45,15 +50,42 @@ public class Board {
     
     /**
      * 
-     * @param toPlace 
-     * @param field 
+     * @param toPlace The token which will be set.
+     * @param field The field number. Field numbers are defined as follows.
+     * 
+     * Field numbers:
+     * 
+     * 0   1   2
+     * 3   4   5
+     * 6   7   8
+     * 
+     * @return  Returns true if the operations was successful. If it returns false
+     *          there already was a token at 'field'.
+     * 
      */
-    public void placeToken(Tokens toPlace, int field) {
-        
+    public boolean placeToken(Tokens toPlace, int field) {
+        final boolean result;
+        result = getBoard().putIfAbsent(field, toPlace) != null;
+        return result;
     }
+
+    @Override
+    public String toString() {
+        return "Board{" + "board=" + getBoard().toString() + '}';
+    }
+    
     
     
     //Methods (Private)
     //==========================================================================
+    
+    //Getter and Setter
+    //==========================================================================
+
+    public HashMap<Integer, Tokens> getBoard() {
+        return board;
+    }
+    
+    
     
 }
