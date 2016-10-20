@@ -14,10 +14,23 @@ public class Board {
 
     //Object Variables
     //==========================================================================
+    
+    /**
+     * The board has nine fields. Each field is one key in this map. From 0 - 8.
+     * Top left is zero. Bottom Right is 8.
+     * 
+     * Like this:
+     * 
+     * 1   2   3
+     * 4   5   6
+     * 7   8   9
+     * 
+     */
     private final Map<Integer, Tokens> board;
 
     //Constructors
     //==========================================================================
+    
     /**
      * Board.
      *
@@ -30,7 +43,12 @@ public class Board {
     //Methods (Public)
     //==========================================================================
     
-    public void placeToken(Tokens toPlace) {
+    /**
+     * 
+     * @param toPlace 
+     * @param field 
+     */
+    public void placeToken(Tokens toPlace, int field) {
         
     }
     
