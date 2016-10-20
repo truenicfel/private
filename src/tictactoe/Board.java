@@ -71,7 +71,14 @@ public class Board {
 
     @Override
     public String toString() {
-        return "Board{" + "board=" + getBoard().toString() + '}';
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                stringBuilder.append(getBoard().get(i+j)).append("   ");
+            }
+            stringBuilder.append(System.getProperty("line.separator"));
+        }
+        return stringBuilder.toString();
     }
     
     
@@ -82,7 +89,7 @@ public class Board {
     //Getter and Setter
     //==========================================================================
 
-    public HashMap<Integer, Tokens> getBoard() {
+    private HashMap<Integer, Tokens> getBoard() {
         return board;
     }
     
