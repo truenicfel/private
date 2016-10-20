@@ -65,23 +65,14 @@ public class Board {
      */
     public boolean placeToken(Tokens toPlace, int field) {
         final boolean result;
-        result = getBoard().putIfAbsent(field, toPlace) != null;
+        result = getBoard().putIfAbsent(field, toPlace) == null;
         return result;
     }
 
     @Override
     public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                stringBuilder.append(getBoard().get(i+j)).append("   ");
-            }
-            stringBuilder.append(System.getProperty("line.separator"));
-        }
-        return stringBuilder.toString();
+        return getBoard().toString();
     }
-    
-    
     
     //Methods (Private)
     //==========================================================================
