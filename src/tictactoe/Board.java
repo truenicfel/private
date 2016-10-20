@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * Board.
  *
- * Board class that represents the 3 by 3 field we play on. 1
+ * Board class that represents the 3 by 3 field we play on.
  *
  * @author nico
  */
